@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f7f8fa;
+    color: #202938;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    padding: 1.25rem 0;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.fa-solid.fa-users {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: #1446A0;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+header .status-api {
+    color: #667085;
+    font-size: 0.9rem;
+}
+
+.fa-solid.fa-circle {
+    color: #22c55e;
+    font-size: 0.65rem;
+}
+
+/* Conteúdo principal */
+main {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    padding: 3rem 0;
+    background-color: #f7f8fa;
+}
+
+/* Apresentação */
+.diretorio {
+    padding: 1rem 0;
+    color: #1446A0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+h2 {
+    padding-bottom: 1rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+}
+
+.sobre {
+    max-width: 650px;
+    padding-bottom: 1rem;
+    color: #667085;
+    line-height: 1.7rem;
+}
+
+.contador {
+    margin-top: 1rem;
+    color: #667085;
+    font-size: 0.9rem;
+}
+
+/* Pesquisa */
+#busca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.campo-pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;        /* Tamanho do campo */
+    min-width: 0;   /* Menos que a largura minima automatica */
+    padding: 0 10px;
+}
+
+#nome {
+    width: calc(100% - 30px);
+    padding: 10px;
+    color: #202938;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+#nome::placeholder {
+    color: #98a2b3;
+}
+
+#nome:focus-visible {
+    outline: 1px solid #1446A0;     /* Linha de foco */
+    outline-offset: 2px;    /* Distancia entre o contorno e a borda */
+    border-radius: 4px;
+}
+
+/* Select */
+
+select {
+    width: 20%;
+    min-width: 0;
+    padding: 10px 32px 10px 12px;
+    color: #202938;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+}
+
+/* Contador de resultados */
+#contador-pessoas {
+    margin-top: 2rem;
+    color: #667085;
+    font-size: 0.9rem;
+}
+
+/* Cartões de usuários */
+#resultados {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.user {
+    min-width: 0;
+    padding: 1.5rem;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* animação do card */
+}
+
+.user:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    #resultados {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    header .container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #resultados {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    main {
+        padding: 2rem 0;
+    }
+}
