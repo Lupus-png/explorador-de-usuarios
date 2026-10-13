@@ -9,11 +9,24 @@ async function buscarOsUsuarios() {
             throw new Error('Ocorreu um erro na requisição: ' + response.status)
         }
         usuarios = await response.json()
+        renderizarUsuarios()
 
     } catch (error) {
         console.error(error)                        // o console ajuda a descobrir o que falhou.
         msg.textContent = "Ops! Algo deu errado..." // enquanto a mensagem na página mantém a experiência mais amigável
     }
+}
+
+function renderizarUsuarios() {
+    usuarios.forEach(user => {
+        resultados.innerHTML += `<div class="user">
+                    <p class="name-card">${user.name}</p>
+                    <p class="username-card">@${user.username}</p>
+                    <p class="info-card"><i class="fa-regular fa-envelope"></i> ${user.email}</p>
+                    <p class="info-card"><i class="fa-solid fa-location-arrow"></i> ${user.address.city}</p>
+                    <p class="info-card"><i class="fa-regular fa-building"></i> ${user.company.name}</p>
+                 </div>`
+    })
 }
 
 buscarOsUsuarios()
