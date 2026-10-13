@@ -124,7 +124,6 @@ h2 {
 }
 
 #nome {
-    width: calc(100% - 30px);
     padding: 10px;
     color: #202938;
     background: transparent;
@@ -188,6 +187,28 @@ select {
 .user:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.name-card {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.username-card {
+    color: gray;
+    padding-bottom: .3rem;
+    margin: 1rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+
+.info-card {
+    padding: .4rem 0;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.info-card > i {
+    padding-right: 7px;
 }
 
 /* Responsividade */
