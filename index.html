@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Usuários</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>
+                <i class="fa-solid fa-users icone-logo"></i>
+                Explorador de Usuários
+            </h1>
+
+            <p class="status-api">
+                <i class="fa-solid fa-circle"></i>
+                Dados via JSONPlaceholder
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- APRESENTAÇÃO -->
+            <section id="apresentacao">
+                <p class="diretorio">DIRETÓRIO</p>
+
+                <h2>Encontre as pessoas certas.</h2>
+
+                <p class="sobre"> Explore contatos, descubra onde estão e conheça as empresas que fazem parte desta rede.</p>
+
+                <p class="contador"><strong id="total-usuarios">0</strong> pessoas na rede</p>
+            </section>
+
+            <!-- INPUT DE BUSCA -->
+            <section id="busca" aria-label="Buscar e filtrar usuários">
+                <div class="campo-pesquisa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        id="nome"
+                        type="search"
+                        placeholder="Pesquisar por nome ou username..."
+                        aria-label="Pesquisar usuários">
+                </div>
+
+                <select id="cidade" aria-label="Filtrar por cidade">
+                    <option value="">Todas as cidades</option>
+                </select>
+
+                <select id="ordem" aria-label="Ordenar usuários">
+                    <option value="asc">Nome: A–Z</option>
+                    <option value="desc">Nome: Z–A</option>
+                </select>
+            </section>
+
+            <!-- LISTA DE RESULTADOS -->
+            <div class="linha-resultados">
+                <p id="contador-pessoas" aria-live="polite">
+                    Carregando usuários...
+                </p>
+
+                <button id="limpar" type="button">
+                    Limpar filtros
+                </button>
+            </div>
+
+            <section id="resultados" aria-label="Lista de usuários">
+                <!-- Os cartões serão criados pelo JavaScript -->
+            </section>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
