@@ -58,6 +58,7 @@ nome.addEventListener('input', (event) => {
     renderizarUsuarios(resultado)
     atualizarContadores(resultado) */
 
+    aplicarFiltros()                                        // a função faz o mesmo que as duas funções juntas
 })
 
 /* Adiciona as 'options' do select */
@@ -84,5 +85,20 @@ cidade.addEventListener('change', (event) => {
     renderizarUsuarios(resultado)
     atualizarContadores(resultado) */
 
+    aplicarFiltros()                                        // a função faz o mesmo que as duas funções juntas
 })
+
+/* Aplica o filtro de cidade e ao mesmo tempo o filtro de busca por nome */
+function aplicarFiltros() {
+    const termo = nome.value.toLowerCase()                  // termo recebe o que é digitado na caixa de busca, em minusculo
+    const cidadeSelecionada = cidade.value                  // cidadeSelecionada recebe o valor selecionado no 'select'
+    let resultado = usuarios.filter(item => (               // resultado recebe os dois filtros, com as quatro condições
+        item.name.toLowerCase().includes(termo) ||          // se incluso o nome no array
+        item.username.toLowerCase().includes(termo)) &&     // se incluso o nickname no array
+        (item.address.city === cidadeSelecionada ||         // se selecionar uma cidade
+        !cidadeSelecionada)                                 // se nao selecionar nenhuma/todas
+    )
+    renderizarUsuarios(resultado)
+    atualizarContadores(resultado)
+}
 
