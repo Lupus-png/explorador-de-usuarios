@@ -27,15 +27,12 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container"> <!-- Classe de alinhamento de header e main -->
             <!-- APRESENTAÇÃO -->
             <section id="apresentacao">
                 <p class="diretorio">DIRETÓRIO</p>
-
                 <h2>Encontre as pessoas certas.</h2>
-
                 <p class="sobre"> Explore contatos, descubra onde estão e conheça as empresas que fazem parte desta rede.</p>
-
                 <p class="contador"><strong id="total-usuarios">0</strong> pessoas na rede</p>
             </section>
 
@@ -43,14 +40,13 @@
             <section id="busca" aria-label="Buscar e filtrar usuários">
                 <div class="campo-pesquisa">
                     <i class="fa-solid fa-magnifying-glass"></i>
-
                     <input
                         id="nome"
                         type="search"
                         placeholder="Pesquisar por nome ou username..."
                         aria-label="Pesquisar usuários">
                 </div>
-
+                <!-- SELECT DE FILTROS -->
                 <select id="cidade" aria-label="Filtrar por cidade">
                     <option value="">Todas as cidades</option>
                 </select>
@@ -63,11 +59,7 @@
 
             <!-- LISTA DE RESULTADOS -->
             <div class="linha-resultados">
-                <p id="contador-pessoas" aria-live="polite">
-                    Carregando usuários...
-                </p>
-
-                <button id="limpar" type="button">Limpar filtros</button>
+                <p class="contador"><strong id="total-encontrados">0</strong> pessoas encontradas</p>
             </div>
 
             <section id="resultados" aria-label="Lista de usuários">
