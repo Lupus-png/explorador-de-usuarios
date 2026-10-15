@@ -2,6 +2,7 @@ const resultados = document.getElementById('resultados')
 const msg = document.getElementById('contador-pessoas')
 const totalUsuarios = document.getElementById('total-usuarios')
 const totalEncontrados = document.getElementById('total-encontrados')
+const nome = document.getElementById('nome')
 let usuarios = []
 
 async function buscarOsUsuarios() {
@@ -45,3 +46,15 @@ function atualizarContadores(lista) {
     }
 }
 
+/* Mecanismo de busca por NOME e USERNAME*/
+nome.addEventListener('input', (event) => { 
+/*  const palavra = event.target.value.toLowerCase();       // valor de cada letra/palavra, em minuscula
+    let resultado = usuarios.filter(item => 
+        item.name.toLowerCase().includes(palavra)           // resultado recebe, usuarios filtrando o item, que inclui as letras/palavras em minuscula
+        || item.username.toLowerCase().includes(palavra)    // ou username em minusculas.
+    )  
+
+    renderizarUsuarios(resultado)
+    atualizarContadores(resultado) */
+
+})
