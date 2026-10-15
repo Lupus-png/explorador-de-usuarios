@@ -4,6 +4,7 @@ const totalUsuarios = document.getElementById('total-usuarios')
 const totalEncontrados = document.getElementById('total-encontrados')
 const nome = document.getElementById('nome')
 const cidade = document.getElementById('cidade')
+const ordem = document.getElementById('ordem')
 let usuarios = []
 
 async function buscarOsUsuarios() {
@@ -100,5 +101,19 @@ function aplicarFiltros() {
     )
     renderizarUsuarios(resultado)
     atualizarContadores(resultado)
+}
+
+/* Ordem crescente e decrescente */
+function ordenarUsuarios(lista, ordemSelecionada) {
+    const copia = [...lista]                                // cria uma copia do array, com o mesmo conteudo dele
+    if (ordemSelecionada === 'asc') {                       
+        copia.sort((a, b) => a.name.localeCompare(b.name))  // ordena em ordem crescente, comparando as iniciais com o localeCompare
+        return copia                                        // retorna o array
+    } else if (ordemSelecionada === 'desc') {
+        copia.sort((a, b) => b.name.localeCompare(a.name))  // ordena em ordem decrescente, comparando as iniciais com o localeCompare
+        return copia                                        // retorna o array
+    } else {
+        return copia
+    }
 }
 
