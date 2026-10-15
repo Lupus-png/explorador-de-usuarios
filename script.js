@@ -1,5 +1,7 @@
 const resultados = document.getElementById('resultados')
 const msg = document.getElementById('contador-pessoas')
+const totalUsuarios = document.getElementById('total-usuarios')
+const totalEncontrados = document.getElementById('total-encontrados')
 let usuarios = []
 
 async function buscarOsUsuarios() {
@@ -32,4 +34,14 @@ function renderizarUsuarios(lista) {
     })
 }
 
-buscarOsUsuarios()
+buscarOsUsuarios()/* Atualiza os contadores de usuarios */
+function atualizarContadores(lista) {
+    totalUsuarios.textContent = usuarios.length             // mostra o total de usuarios na rede
+
+    if (!lista) {                                           // se não tiver parametro, coloque usuarios
+        totalEncontrados.textContent = usuarios.length
+    } else {                                                // se tiver, mostre a quantidade atual na lista
+        totalEncontrados.textContent = lista.length
+    }
+}
+
