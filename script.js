@@ -99,6 +99,9 @@ function aplicarFiltros() {
         (item.address.city === cidadeSelecionada ||         // se selecionar uma cidade
         !cidadeSelecionada)                                 // se nao selecionar nenhuma/todas
     )
+    const ascDesc = ordem.value                             // a variavel recebe o valor da ordem (asc ou desc, do select)
+
+    resultado = ordenarUsuarios(resultado, ascDesc)         // resultado passa a guardar a lista ordenada (resultado é a lista com condições e ascDesc é a ordem)
     renderizarUsuarios(resultado)
     atualizarContadores(resultado)
 }
@@ -117,3 +120,7 @@ function ordenarUsuarios(lista, ordemSelecionada) {
     }
 }
 
+/* O select de ordenação de A-Z e Z-A */
+ordem.addEventListener('change', () => {       
+    aplicarFiltros()                                        // chama aplicarFiltros quando seleciona a ordem (asc ou desc)
+})
