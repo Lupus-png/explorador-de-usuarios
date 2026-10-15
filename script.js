@@ -3,6 +3,7 @@ const msg = document.getElementById('contador-pessoas')
 const totalUsuarios = document.getElementById('total-usuarios')
 const totalEncontrados = document.getElementById('total-encontrados')
 const nome = document.getElementById('nome')
+const cidade = document.getElementById('cidade')
 let usuarios = []
 
 async function buscarOsUsuarios() {
@@ -58,3 +59,16 @@ nome.addEventListener('input', (event) => {
     atualizarContadores(resultado) */
 
 })
+
+/* Adiciona as 'options' do select */
+function preencherCidades() {
+    const cidades = usuarios.map(item => item.address.city) // cidades recebe o array usuarios, mas sómente com as cidades
+    const set = new Set(cidades)                            // set é uma coleção de valores, que proibe duplicados (repetições)
+    set.forEach(item => {                                   // percorre o 'set' e cria uma linha do tipo 'option' pra cada cidade, e adiciona no select(cidade)
+        const linha = document.createElement('option')
+        linha.innerText = item
+        linha.value = item
+        cidade.appendChild(linha)
+    })
+}
+
