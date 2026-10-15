@@ -1,5 +1,5 @@
+const msg = document.querySelectorAll('.contador')[1]       // seleciona a classeName 'contador', e o segundo item (0, 1) apenas
 const resultados = document.getElementById('resultados')
-const msg = document.getElementById('contador-pessoas')
 const totalUsuarios = document.getElementById('total-usuarios')
 const totalEncontrados = document.getElementById('total-encontrados')
 const nome = document.getElementById('nome')
@@ -7,6 +7,7 @@ const cidade = document.getElementById('cidade')
 const ordem = document.getElementById('ordem')
 let usuarios = []
 
+/* Função assincrona com a API e tratamento de Erros */
 async function buscarOsUsuarios() {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -14,11 +15,14 @@ async function buscarOsUsuarios() {
             throw new Error('Ocorreu um erro na requisição: ' + response.status)
         }
         usuarios = await response.json()
-        renderizarUsuarios()
+        renderizarUsuarios(usuarios)                        // depois de esperar o 'await' é exibido na tela
+        atualizarContadores()                               // atualiza a quantidade de pessoas na rede
+        preencherCidades()                                  // adiciona as options no select
+        aplicarFiltros()                                    // aplica os filtros de busca e de cidade
 
     } catch (error) {
-        console.error(error)                        // o console ajuda a descobrir o que falhou.
-        msg.textContent = "Ops! Algo deu errado..." // enquanto a mensagem na página mantém a experiência mais amigável
+        console.error(error)                                // o console ajuda a descobrir o que falhou.
+        msg.textContent = "Ops! Algo deu errado..."         // enquanto a mensagem na página mantém a experiência mais amigável
     }
 }
 
@@ -37,7 +41,7 @@ function renderizarUsuarios(lista) {
     })
 }
 
-buscarOsUsuarios()/* Atualiza os contadores de usuarios */
+/* Atualiza os contadores de usuarios */
 function atualizarContadores(lista) {
     totalUsuarios.textContent = usuarios.length             // mostra o total de usuarios na rede
 
@@ -124,3 +128,5 @@ function ordenarUsuarios(lista, ordemSelecionada) {
 ordem.addEventListener('change', () => {       
     aplicarFiltros()                                        // chama aplicarFiltros quando seleciona a ordem (asc ou desc)
 })
+
+buscarOsUsuarios()                                          // chama a função da API
