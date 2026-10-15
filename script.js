@@ -17,8 +17,11 @@ async function buscarOsUsuarios() {
     }
 }
 
-function renderizarUsuarios() {
-    usuarios.forEach(user => {
+/* Função de exibição no DOM */
+function renderizarUsuarios(lista) {
+    resultados.textContent = ''                             // sempre limpar a lista quando chamar a função
+
+    lista.forEach(user => {                                 // lista atual, cria os cards na tela
         resultados.innerHTML += `<div class="user">
                     <p class="name-card">${user.name}</p>
                     <p class="username-card">@${user.username}</p>
