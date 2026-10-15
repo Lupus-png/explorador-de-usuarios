@@ -53,16 +53,7 @@ function atualizarContadores(lista) {
 }
 
 /* Mecanismo de busca por NOME e USERNAME*/
-nome.addEventListener('input', (event) => { 
-/*  const palavra = event.target.value.toLowerCase();       // valor de cada letra/palavra, em minuscula
-    let resultado = usuarios.filter(item => 
-        item.name.toLowerCase().includes(palavra)           // resultado recebe, usuarios filtrando o item, que inclui as letras/palavras em minuscula
-        || item.username.toLowerCase().includes(palavra)    // ou username em minusculas.
-    )  
-
-    renderizarUsuarios(resultado)
-    atualizarContadores(resultado) */
-
+nome.addEventListener('input', () => { 
     aplicarFiltros()                                        // a função faz o mesmo que as duas funções juntas
 })
 
@@ -80,16 +71,6 @@ function preencherCidades() {
 
 /* Quando selecionar/mudar um 'option' do select */
 cidade.addEventListener('change', (event) => {
-/*  const click = event.target.value                        // o event target captura aonde foi o click, no caso o change(mudança de valor)
-    let resultado = usuarios.filter(item => 
-        item.address.city === click)                        // resultado recebe, a cidade de 'usuarios' que são iguais ao 'click' (click === nome da cidade)
-    if (!click) {                                           // se não tiver 'click' (cidade selecionada), resultado recebe usuarios
-        resultado = usuarios
-    }
-
-    renderizarUsuarios(resultado)
-    atualizarContadores(resultado) */
-
     aplicarFiltros()                                        // a função faz o mesmo que as duas funções juntas
 })
 
