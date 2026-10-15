@@ -72,3 +72,17 @@ function preencherCidades() {
     })
 }
 
+/* Quando selecionar/mudar um 'option' do select */
+cidade.addEventListener('change', (event) => {
+/*  const click = event.target.value                        // o event target captura aonde foi o click, no caso o change(mudança de valor)
+    let resultado = usuarios.filter(item => 
+        item.address.city === click)                        // resultado recebe, a cidade de 'usuarios' que são iguais ao 'click' (click === nome da cidade)
+    if (!click) {                                           // se não tiver 'click' (cidade selecionada), resultado recebe usuarios
+        resultado = usuarios
+    }
+
+    renderizarUsuarios(resultado)
+    atualizarContadores(resultado) */
+
+})
+
